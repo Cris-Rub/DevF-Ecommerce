@@ -1,8 +1,5 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Container, Navbar, Button, Form } from 'react-bootstrap';
 // import Image from 'react-bootstrap/Image';
 
 import Logo from '../assets/Logo.svg';
