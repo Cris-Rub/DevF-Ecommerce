@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Card, Button, ListGroup, Badge } from 'react-bootstrap';
 import axios from 'axios';
-import { useEffect } from 'react';
 
 const Product = ({ details, getProductDetails }) => {
 
@@ -20,7 +19,7 @@ const Product = ({ details, getProductDetails }) => {
                                 <h4>
                                     Price <Badge bg="info">{`$${details.price}`}</Badge>
                                 </h4>
-                                <Button variant="primary">Buy</Button>
+                                <Button variant="primary">Add to cart</Button>
                             </Card.Body>
                         </Card> 
                     </div>

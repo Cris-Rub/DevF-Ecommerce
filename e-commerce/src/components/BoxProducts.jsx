@@ -3,8 +3,8 @@ import axios from 'axios';
 import Container from 'react-bootstrap/esm/Container';
 import { Row, Card, Button, ListGroup } from 'react-bootstrap';
 import Product from './Product';
-
-
+import SidebarSearch from './SidebarSearch';
+import AlertComponent from './AlertComponent';
 
 const BoxProducts = () => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
@@ -136,117 +136,33 @@ const BoxProducts = () => {
             <Container fluid className='px-5 mt-5'>
                 <Row>
                     <div className="col-3">
-                        <h5>Popular</h5>
-                        <ListGroup variant="flush">
-                            <ListGroup.Item as='a'>Toys</ListGroup.Item>
-                            <ListGroup.Item as='a'>Kitchen</ListGroup.Item>
-                            <ListGroup.Item as='a'>Beauty</ListGroup.Item>
-                            <ListGroup.Item as='a'>Home</ListGroup.Item>
-                        </ListGroup>
+                        <SidebarSearch/>
                     </div>
                     <div className='col'>
                         <div id='box-products' className='row row-cols-3'>
                             {
-                                productArray.map((product, index) => (
-                                    <Product
-                                        details={product}
-                                        key={index}
-                                        getProductDetails={() => recoverProductId(product._id)}
-                                    />
-                                ))
+                                productArray.lenght === 0 ? (
+                                    // <AlertComponent/>
+                                    console.log('Alerta')
+                                ) : (
+                                    productArray.map((product, index) => (
+                                        product.image !== undefined && (
+                                            <Product
+                                                details={product}
+                                                key={index}
+                                                getProductDetails={() => recoverProductId(product._id)}
+                                            />
+                                        ) 
+                                        // <Product
+                                        //     details={product}
+                                        //     key={index}
+                                        //     getProductDetails={() => recoverProductId(product._id)}
+                                        // />
+                                    ))
+                                )
+                                
                                 
                             }
-                            {/* <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div>
-                            <div className="col mb-3">
-                                <Card style={{ width: '18rem' }}>
-                                    <Card.Img variant="top" src="https://i.pinimg.com/originals/eb/83/be/eb83be580847bcdc4c8f403c8085d3c8.jpg" />
-                                    <Card.Body>
-                                        <Card.Title>Awesome Granite Bacon</Card.Title>
-                                        <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the cards content.
-                                        </Card.Text>
-                                        <Button variant="primary">Go somewhere</Button>
-                                    </Card.Body>
-                                </Card> 
-                            </div> */}
                         </div>
                     </div>
                 </Row>
