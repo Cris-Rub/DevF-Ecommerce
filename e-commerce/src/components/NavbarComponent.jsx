@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Container, Navbar, Button, Form } from 'react-bootstrap';
 import Logo from '../assets/Logo.svg';
 import ShoppingCart from '../assets/shoppingCart.svg';
-
 import './NavbarComponent.css';
 
 const NavbarComponent = () => {
+    const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
     const [searchValue, setSearchValue] = useState({});
 
     const handleSearchValue = (e) => {
         const {target: {name, value}} = e;
         setSearchValue({ ...searchValue, [name]: value});
+        console.log(searchValue);
+    };
+    const submitSearch = (e) => {
+        e.preventDefault();
+        console.log(e);
     };
 
     return (
         <>
-            <Navbar bg="light" expand="lg" sticky="top">
+            <Navbar bg="dark" expand="lg" sticky="top">
                 <Container>
                     <Navbar.Brand href="#home" className='fw-bold text-danger'>
                         <img
@@ -37,7 +43,11 @@ const NavbarComponent = () => {
                             value={searchValue.searchValue || ''}
                             onChange={handleSearchValue}
                         />
-                        <Button variant="outline-danger">Search</Button>
+                        <Button
+                            variant="outline-danger"
+                            type='submit'
+                            onClick={(e) => submitSearch(e)}
+                        >Search</Button>
                     </Form>
                     <Navbar.Brand href="#home" className='fw-bold text-danger'>
                         <img
