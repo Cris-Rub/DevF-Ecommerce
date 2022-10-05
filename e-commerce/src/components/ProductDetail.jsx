@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Card, Button, ListGroup, Alert, Container, Badge } from 'react-bootstrap';
 
-const ProductDetail = ({ details }) => {
+const ProductDetail = ({ details, handleGoBack }) => {
     return (
         <>
             <Container>
@@ -14,7 +14,7 @@ const ProductDetail = ({ details }) => {
                             <div className="col-12">
                                 <h3>{details.product_name}</h3>
                                 <p>{details.description}</p>
-                                <h4>Marca: {details.brand}</h4>
+                                <h5>Marca: {details.brand}</h5>
                             </div>
                         </Row>
                         <Row>
@@ -39,7 +39,7 @@ const ProductDetail = ({ details }) => {
                             <div className="col-12">
                                 <Button variant="danger" size='lg'>Buy now</Button>{' '}
                                 <Button variant='warning' size='lg'>Add to cart</Button>{' '}
-                                <Button variant='warning' size='lg' >Add to cart</Button>{' '}
+                                <Button variant='warning' size='lg' onClick={handleGoBack}>Go back</Button>{' '}
                             </div>
                         </Row>
                     </div>

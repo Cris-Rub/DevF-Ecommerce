@@ -8,7 +8,7 @@ import SidebarSearch from './SidebarSearch';
 import ProductDetail from './ProductDetail';
 import AlertComponent from './AlertComponent';
 
-const BoxProducts = ({ products }) => {
+const BoxProducts = ({ products, func }) => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
     // const [productToSearch, setProductToSearch] = useState({});
     // const [show, setShow] = useState(true);
@@ -36,6 +36,7 @@ const BoxProducts = ({ products }) => {
                 .catch((error) => console.log(error));
         }
     }, [productSelected]);
+    
 
     const recoverProductId = (id) => {
         setProductSelected(id);
@@ -56,6 +57,7 @@ const BoxProducts = ({ products }) => {
                                         details={product}
                                         key={index}
                                         getProductDetails={() => recoverProductId(product._id)}
+                                        productToShow={func(productInfo)}
                                     />
                                 )))
                         }

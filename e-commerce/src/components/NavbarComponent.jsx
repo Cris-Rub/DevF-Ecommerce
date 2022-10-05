@@ -7,11 +7,12 @@ import './NavbarComponent.css';
 
 const NavbarComponent = () => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
-    const [searchValue, setSearchValue] = useState({});
+    const [searchValue, setSearchValue] = useState();
 
     const handleSearchValue = (e) => {
-        const {target: {name, value}} = e;
-        setSearchValue({ ...searchValue, [name]: value});
+        console.log(e);
+        const {target: {value}} = e;
+        setSearchValue(value);
         console.log(searchValue);
     };
     const submitSearch = (e) => {
@@ -40,7 +41,6 @@ const NavbarComponent = () => {
                             className="me-2 align-center"
                             aria-label="Buscar"
                             name='searchValue'
-                            value={searchValue.searchValue || ''}
                             onChange={handleSearchValue}
                         />
                         <Button

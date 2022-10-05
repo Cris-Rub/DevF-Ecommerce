@@ -7,7 +7,7 @@ import ProductDetail from './components/ProductDetail';
 import { Alert, Button, Row, Col, Container } from 'react-bootstrap';
 import './App.css';
 
-function App() {
+function App({ productToShow }) {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
     const [productToSearch, setProductToSearch] = useState({});
     const [show, setShow] = useState(true);
@@ -25,19 +25,22 @@ function App() {
             .catch((error) => console.log(error));
     }, []);
     useEffect(() => {
-        if (productSelected) {
-            axios
-                .get(`${BASE_URL}item/${productSelected}`)
-                .then(({ data }) => {
-                    console.log(data);
-                    setProductInfo(data);
-                })
-                .catch((error) => console.log(error));
-        }
-    }, [productSelected]);
-    const recoverProductId = (id) => {
-        setProductSelected(id);
-    };
+        
+    }, []);
+    // useEffect(() => {
+    //     if (productSelected) {
+    //         axios
+    //             .get(`${BASE_URL}item/${productSelected}`)
+    //             .then(({ data }) => {
+    //                 console.log(data);
+    //                 setProductInfo(data);
+    //             })
+    //             .catch((error) => console.log(error));
+    //     }
+    // }, [productSelected]);
+    // const recoverProductId = (id) => {
+    //     setProductSelected(id);
+    // };
 
     return (
         <div className="App">
@@ -70,6 +73,7 @@ function App() {
                         Object.values(productInfo).length === 0 ? (
                             <BoxProducts
                                 products={productArray}
+                                func={(data) => setProductInfo(data)}
                             />
                         ) : (
                             <ProductDetail
