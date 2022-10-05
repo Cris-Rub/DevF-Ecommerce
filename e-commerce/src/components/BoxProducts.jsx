@@ -1,9 +1,11 @@
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/esm/Container';
-import { Row, Card, Button, ListGroup } from 'react-bootstrap';
+import { Row, Card, Button, ListGroup, Alert } from 'react-bootstrap';
 import Product from './Product';
 import SidebarSearch from './SidebarSearch';
+import ProductDetail from './ProductDetail';
 import AlertComponent from './AlertComponent';
 
 const BoxProducts = () => {
@@ -36,6 +38,9 @@ const BoxProducts = () => {
     const recoverProductId = (id) => {
         setProductSelected(id);
     };
+    const productsFilter = () => {
+        
+    }
 
     return (
         <>
@@ -141,10 +146,7 @@ const BoxProducts = () => {
                     <div className='col'>
                         <div id='box-products' className='row row-cols-3'>
                             {
-                                productArray.lenght === 0 ? (
-                                    // <AlertComponent/>
-                                    console.log('Alerta')
-                                ) : (
+                                Object.values(productInfo).length === 0 ? (
                                     productArray.map((product, index) => (
                                         product.image !== undefined && (
                                             <Product
@@ -152,16 +154,13 @@ const BoxProducts = () => {
                                                 key={index}
                                                 getProductDetails={() => recoverProductId(product._id)}
                                             />
-                                        ) 
-                                        // <Product
-                                        //     details={product}
-                                        //     key={index}
-                                        //     getProductDetails={() => recoverProductId(product._id)}
-                                        // />
-                                    ))
-                                )
-                                
-                                
+                                        )))
+                                ) : (
+                                    <ProductDetail
+                                        details={productInfo}
+                                        handleGoBack={() => setProductInfo({})}
+                                    />
+                                )         
                             }
                         </div>
                     </div>

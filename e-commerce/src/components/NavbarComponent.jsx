@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Navbar, Button, Form } from 'react-bootstrap';
-// import Image from 'react-bootstrap/Image';
-
 import Logo from '../assets/Logo.svg';
 import ShoppingCart from '../assets/shoppingCart.svg';
 
 import './NavbarComponent.css';
 
 const NavbarComponent = () => {
+    const [searchValue, setSearchValue] = useState({});
+
+    const handleSearchValue = (e) => {
+        const {target: {name, value}} = e;
+        setSearchValue({ ...searchValue, [name]: value});
+    };
+
     return (
         <>
             <Navbar bg="light" expand="lg" sticky="top">
@@ -28,6 +33,9 @@ const NavbarComponent = () => {
                             placeholder="All what you want!"
                             className="me-2 align-center"
                             aria-label="Buscar"
+                            name='searchValue'
+                            value={searchValue.searchValue || ''}
+                            onChange={handleSearchValue}
                         />
                         <Button variant="outline-danger">Search</Button>
                     </Form>
@@ -42,10 +50,6 @@ const NavbarComponent = () => {
                     </Navbar.Brand>  
                 </Container>
             </Navbar>
-            {/* <Image
-                src='https://ae01.alicdn.com/kf/S1c2813a3043f4b76afe2da7e797813557.jpg_Q90.jpg_.webp'
-                height='100'
-            /> */}
         </>
     );
 };
