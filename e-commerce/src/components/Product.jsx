@@ -8,7 +8,7 @@ const Product = ({ details, getProductDetails }) => {
     return (
         <>
             <div className="col mb-3" onClick={getProductDetails}>
-                <Card style={{ width: '15rem', height: '25rem', cursor: 'pointer'}}>
+                <Card style={{ width: '15rem', height: '25rem', cursor: 'pointer'}} className='card-product'>
                     <Card.Img
                         fluid
                         className='card-image'

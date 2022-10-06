@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Container, Navbar, Button, Form } from 'react-bootstrap';
+import { Container, Navbar, Nav, Button, Form } from 'react-bootstrap';
 import Logo from '../assets/Logo.svg';
 import ShoppingCart from '../assets/shoppingCart.svg';
 import './NavbarComponent.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const NavbarComponent = ({ results=[], search }) => {
     const [searchValue, setSearchValue] = useState();
@@ -25,7 +26,7 @@ const NavbarComponent = ({ results=[], search }) => {
     return (
         <>
             <Navbar bg="dark" expand="lg" sticky="top">
-                <Container>
+                <Container className='fs-3'>
                     <Navbar.Brand href="/home" className='fw-bold text-danger'>
                         {/* <Link to='/home'> */}
                         <img
@@ -56,15 +57,12 @@ const NavbarComponent = ({ results=[], search }) => {
                             }}
                         >Search</Button>
                     </Form>
-                    <Navbar.Brand href="/home" className='fw-bold text-danger'>
-                        <img
-                            alt=""
-                            src={ShoppingCart}
-                            width="30"
-                            height="30"
-                            className="d-inline-block align-top"
-                        />{' '}
-                    </Navbar.Brand>  
+                    <Nav className='justify-content-end fs-4'>
+                        <Nav.Link href='/login' className='text-light'>Log in</Nav.Link>
+                        <a className="nav-link" href="/home">
+                            <i className="bi bi-person-circle" style={{color: 'rgb(220, 53, 69)'}}></i>             
+                        </a>
+                    </Nav>
                 </Container>
             </Navbar>
         </>

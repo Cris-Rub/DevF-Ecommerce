@@ -21,7 +21,7 @@ const ErrorPage = () => {
                 </Container>
             </Navbar>
             <Container className='container-error px-5 mt-5 mb-5'>
-                <Card>
+                <Card className='card-error'>
                     <Card.Title><h1 className='fw-bold' style={{fontSize: '25px'}}>Page Not Found</h1></Card.Title>
                     <Card.Body>
                         <p>
