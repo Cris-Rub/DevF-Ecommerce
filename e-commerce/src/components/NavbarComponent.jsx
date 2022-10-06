@@ -27,8 +27,7 @@ const NavbarComponent = ({ results=[], search }) => {
         <>
             <Navbar bg="dark" expand="lg" sticky="top">
                 <Container className='fs-3'>
-                    <Navbar.Brand href="/home" className='fw-bold text-danger'>
-                        {/* <Link to='/home'> */}
+                    <Link to="/home" className='fw-bold text-danger'>
                         <img
                             alt=""
                             src={Logo}
@@ -37,8 +36,7 @@ const NavbarComponent = ({ results=[], search }) => {
                             className="d-inline-block align-top"
                         />{' '}
                             One2Shop!
-                        {/* </Link> */}
-                    </Navbar.Brand>  
+                    </Link>  
                     <Form className="d-flex form-inline mx-auto my-2">
                         <Form.Control
                             type="search"
@@ -57,11 +55,11 @@ const NavbarComponent = ({ results=[], search }) => {
                             }}
                         >Search</Button>
                     </Form>
-                    <Nav className='justify-content-end fs-4'>
-                        <Nav.Link href='/login' className='text-light'>Log in</Nav.Link>
-                        <a className="nav-link" href="/home">
+                    <Nav className='justify-content-end fs-6'>
+                        <Link to='/login' className='text-light'>Log in</Link>
+                        <Link className="nav-link" to="/home">
                             <i className="bi bi-person-circle" style={{color: 'rgb(220, 53, 69)'}}></i>             
-                        </a>
+                        </Link>
                     </Nav>
                 </Container>
             </Navbar>

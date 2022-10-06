@@ -12,7 +12,6 @@ import './App.css';
 
 function App() {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
-    const [show, setShow] = useState(true);
     const [productArray, setProductArray] = useState([]);
     const [productInfo, setProductInfo] = useState({});
 
@@ -41,34 +40,17 @@ function App() {
                                 results={productArray}
                                 search={(data) => {
                                     console.log(data);
+                                    setProductArray([]);
                                     if(data.length===0){
-                                        setProductArray([]);
+                                        
                                         fillValues();
                                         setProductInfo({});
                                     }else{
-                                        setProductArray([]);
+                                        
                                         setProductArray(data);
                                     }
                                 }}
                             />
-                            <Container fluid className='alert-banner px-5 mt-5'>
-                                {/* <Row>
-                                    <div className="col-12">
-                                        <Alert show={show} variant="dark">
-                                            <Alert.Heading>BIG SALE</Alert.Heading>
-                                            <p>
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum non praesentium quas, pariatur nostrum repudiandae labore sunt recusandae adipisci, natus quos vel? Molestiae aliquid obcaecati laboriosam dolorem alias delectus eos.
-                                            </p>
-                                            <hr />
-                                            <div className="d-flex justify-content-end">
-                                                <Button onClick={() => setShow(false)} variant="outline-success">
-                                                    GOT IT!
-                                                </Button>
-                                            </div>
-                                        </Alert>
-                                    </div>
-                                </Row> */}
-                            </Container>
                             <Container fluid className='px-5 mt-5'>
                                 {
                                     productArray.length === 0 ? (
@@ -81,8 +63,6 @@ function App() {
                                             />
                                         ) : (
                                             <ProductDetail
-                                                details={productInfo}
-                                                handleGoBack={() => setProductInfo({})}
                                             />
                                         )
                                     )
@@ -91,6 +71,11 @@ function App() {
                         </>
                     }
                 />
+                <Route
+                    path='/product/:id'
+                    element={<ProductDetail/>}
+                />
+                <Route element={<NavbarComponent/>}></Route>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
         </div>

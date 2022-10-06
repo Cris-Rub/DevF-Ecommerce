@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Navbar, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 import './ErrorPage.css';
 
@@ -8,7 +9,7 @@ const ErrorPage = () => {
         <>
             <Navbar bg="dark" expand="lg" sticky="top">
                 <Container>
-                    <Navbar.Brand href="/home" className='fw-bold text-danger'>
+                    <Link to="/home" className='fw-bold text-danger'>
                         <img
                             alt=""
                             src={Logo}
@@ -17,7 +18,7 @@ const ErrorPage = () => {
                             className="d-inline-block align-top"
                         />{' '}
                             One2Shop!
-                    </Navbar.Brand>  
+                    </Link>   
                 </Container>
             </Navbar>
             <Container className='container-error px-5 mt-5 mb-5'>
@@ -25,12 +26,12 @@ const ErrorPage = () => {
                     <Card.Title><h1 className='fw-bold' style={{fontSize: '25px'}}>Page Not Found</h1></Card.Title>
                     <Card.Body>
                         <p>
-                            It looks like the page you are looking for doesn't exist.
+                            It looks like the page you are looking for does not exist.
                         </p>
                         <p>
                             Don't worry, 
                         </p>
-                        <a href="/home">let's go back to our site</a>
+                        <Link to="/home">let's go back to our site</Link>
                     </Card.Body>
                 </Card>
             </Container>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Container from 'react-bootstrap/esm/Container';
-import { Row, Card, Button, ListGroup, Alert } from 'react-bootstrap';
+import { Row, Card, Button, ListGroup, Alert, Container } from 'react-bootstrap';
 import Product from './Product';
 import SidebarSearch from './SidebarSearch';
 import ProductDetail from './ProductDetail';
 import './BoxProducts.css';
 
 const BoxProducts = ({ products, func }) => {
+    const navigate = useNavigate();
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
     const [productInfo, setProductInfo] = useState({});
     const [productSelected, setProductSelected] = useState(undefined);
@@ -27,7 +27,8 @@ const BoxProducts = ({ products, func }) => {
     
 
     const recoverProductId = (id) => {
-        setProductSelected(id);
+        // setProductSelected(id);
+        navigate(`/product/${id}`);
     };
 
     return (
