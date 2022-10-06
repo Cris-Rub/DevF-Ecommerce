@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Spinner, Stack } from 'react-bootstrap';
+import { Spinner, Stack } from 'react-bootstrap';
 import './LoadingComponent.css';
 
 const LoadingComponent = () => {

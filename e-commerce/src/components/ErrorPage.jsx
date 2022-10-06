@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Navbar, Button, Card } from 'react-bootstrap';
+import React from 'react';
+import { Container, Navbar, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 import './ErrorPage.css';

@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Row, Card, Button, ListGroup, Badge } from 'react-bootstrap';
-import axios from 'axios';
+import React from 'react';
+import { Card} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './Product.css';
 
-const Product = ({ details, getProductDetails }) => {
+const Product = ({ details }) => {
+    const navigate = useNavigate();
+
+    const getProductDetails = (id) => {
+        navigate(`/product/${id}`);
+    };
 
     return (
         <>
-            <div className="col mb-3" onClick={getProductDetails}>
+            <div className="col mb-3" onClick={() => getProductDetails(details._id)}>
                 <Card style={{ width: '15rem', height: '25rem', cursor: 'pointer'}} className='card-product'>
                     <Card.Img
                         fluid
                         className='card-image'
                         variant="top" 
                         src={details.image}
-                        // height={250}
                     />
                     <Card.Body>
                         <Card.Title>{details.product_name}</Card.Title>
@@ -24,8 +28,6 @@ const Product = ({ details, getProductDetails }) => {
                         <Card.Text className='priceProduct'>
                             <h5><b>${details.price} MXN</b></h5>
                         </Card.Text>
-                        
-                        {/* <Button variant="primary" size='sm'>Add to cart</Button> */}
                     </Card.Body>
                 </Card> 
             </div>

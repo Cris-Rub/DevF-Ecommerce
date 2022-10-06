@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Card, Button, ListGroup, Container } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 
 const SidebarSearch = () => {
     return (
@@ -10,6 +10,7 @@ const SidebarSearch = () => {
                 <ListGroup.Item as='a'>Kitchen</ListGroup.Item>
                 <ListGroup.Item as='a'>Beauty</ListGroup.Item>
                 <ListGroup.Item as='a'>Home</ListGroup.Item>
+                <ListGroup.Item as='a'>See more...</ListGroup.Item>
             </ListGroup>
         </>
     );

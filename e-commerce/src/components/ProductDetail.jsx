@@ -1,14 +1,13 @@
 import React, { useEffect, useState} from 'react';
 import axios from 'axios';
-import { Row, Card, Button, ListGroup, Alert, Container } from 'react-bootstrap';
-import { useParams, useNavigate } from 'react-router-dom';
+import { Row, Card, Button, Container } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
     const { id } = useParams();
-    const navigate = useNavigate();
     const [product, setProduct] = useState ({});
 
     useEffect(() => {

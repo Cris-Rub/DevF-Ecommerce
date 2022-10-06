@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Alert, Button, Row, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import ErrorPage from './components/ErrorPage';
 import NavbarComponent from './components/NavbarComponent';
 import BoxProducts from './components/BoxProducts';
@@ -39,10 +39,8 @@ function App() {
                             <NavbarComponent
                                 results={productArray}
                                 search={(data) => {
-                                    console.log(data);
                                     setProductArray([]);
                                     if(data.length===0){
-                                        
                                         fillValues();
                                         setProductInfo({});
                                     }else{
@@ -73,9 +71,13 @@ function App() {
                 />
                 <Route
                     path='/product/:id'
-                    element={<ProductDetail/>}
+                    element={
+                        <>
+                            <NavbarComponent/>
+                            <ProductDetail/>
+                        </>
+                    }
                 />
-                <Route element={<NavbarComponent/>}></Route>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
         </div>

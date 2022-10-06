@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Navbar, Nav, Button, Form } from 'react-bootstrap';
 import Logo from '../assets/Logo.svg';
-import ShoppingCart from '../assets/shoppingCart.svg';
 import './NavbarComponent.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
