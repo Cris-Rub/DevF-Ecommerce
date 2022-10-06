@@ -1,30 +1,33 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, Navbar, Button, Form } from 'react-bootstrap';
 import Logo from '../assets/Logo.svg';
 import ShoppingCart from '../assets/shoppingCart.svg';
 import './NavbarComponent.css';
 
-const NavbarComponent = () => {
-    const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
+const NavbarComponent = ({ results=[], search }) => {
     const [searchValue, setSearchValue] = useState();
 
     const handleSearchValue = (e) => {
-        console.log(e);
         const {target: {value}} = e;
-        setSearchValue(value);
-        console.log(searchValue);
+        setSearchValue(value.toLowerCase());
     };
     const submitSearch = (e) => {
         e.preventDefault();
-        console.log(e);
+        const resultado = results.filter(product => {
+            const toSearch = product.product_name.toLowerCase(); 
+            return toSearch == searchValue;
+        });
+        search(resultado);
+        
     };
 
     return (
         <>
             <Navbar bg="dark" expand="lg" sticky="top">
                 <Container>
-                    <Navbar.Brand href="#home" className='fw-bold text-danger'>
+                    <Navbar.Brand href="/home" className='fw-bold text-danger'>
+                        {/* <Link to='/home'> */}
                         <img
                             alt=""
                             src={Logo}
@@ -32,7 +35,8 @@ const NavbarComponent = () => {
                             height="30"
                             className="d-inline-block align-top"
                         />{' '}
-                    One2Shop!
+                            One2Shop!
+                        {/* </Link> */}
                     </Navbar.Brand>  
                     <Form className="d-flex form-inline mx-auto my-2">
                         <Form.Control
@@ -46,10 +50,13 @@ const NavbarComponent = () => {
                         <Button
                             variant="outline-danger"
                             type='submit'
-                            onClick={(e) => submitSearch(e)}
+                            onClick={(e) => {
+                                submitSearch(e);
+                                // 
+                            }}
                         >Search</Button>
                     </Form>
-                    <Navbar.Brand href="#home" className='fw-bold text-danger'>
+                    <Navbar.Brand href="/home" className='fw-bold text-danger'>
                         <img
                             alt=""
                             src={ShoppingCart}

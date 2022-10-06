@@ -6,25 +6,12 @@ import { Row, Card, Button, ListGroup, Alert } from 'react-bootstrap';
 import Product from './Product';
 import SidebarSearch from './SidebarSearch';
 import ProductDetail from './ProductDetail';
-import AlertComponent from './AlertComponent';
 
 const BoxProducts = ({ products, func }) => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
-    // const [productToSearch, setProductToSearch] = useState({});
-    // const [show, setShow] = useState(true);
-    // const [productArray, setProductArray] = useState([]);
     const [productInfo, setProductInfo] = useState({});
     const [productSelected, setProductSelected] = useState(undefined);
 
-    // useEffect(() => {
-    //     axios
-    //         .get(`${BASE_URL}item`)
-    //         .then(({ data }) => {
-    //             setProductArray(data);
-    //             // console.log(data);
-    //         })
-    //         .catch((error) => console.log(error));
-    // }, []);
     useEffect(() => {
         if (productSelected) {
             axios
