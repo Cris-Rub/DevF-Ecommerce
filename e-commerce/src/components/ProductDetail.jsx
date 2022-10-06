@@ -17,7 +17,6 @@ const ProductDetail = ({ details, handleGoBack }) => {
                                     fluid
                                     className='product-image'
                                     src={details.image}
-                                    // height={250}
                                 /> 
                             </div>
                             <div className="col-8">
@@ -40,86 +39,10 @@ const ProductDetail = ({ details, handleGoBack }) => {
                                         <Button variant='warning' size='sm'>Add to cart</Button>{' '}
                                     </div>
                                 </Row>
-
-                                {/* <Row>
-                                    <div className="col-12">
-                                        <p>{details.description}</p>
-                                        <p>{details.brand}</p>
-                                    </div>
-                                </Row>
-                                <Row>
-                                    <div className="col-12 ">
-                                        <p className='title'>Free shipping!</p>
-                                        <p>
-                                            <i className="bi bi-truck"></i>
-                                            Estimated delivery on <b>Dec 16</b>
-                                        </p>
-                                        <br />
-                                    </div>
-                                </Row>
-                                <Row>
-                                    <div className="col-12 align-self-end">
-                                        <Button variant="danger" size='sm'>Buy now</Button>{' '}
-                                        <Button variant='warning' size='sm'>Add to cart</Button>{' '}
-                                    </div>
-                                </Row> */}
                             </div>
-                            
-                            {/* <Card.Title>{details.brand}</Card.Title> */}
                         </Row>
                     </Card.Body>
                 </Card>
-                {/* <Row>
-                    <div className="col-4 align-self-center">
-                        <img className='img-fluid' src={details.image} />
-                    </div>
-                    <div className="col-8">
-                        <Row>
-                            <div className="col-12">
-                                <h3>{details.product_name}</h3>
-                                
-                                <h5>Marca: {details.brand}</h5>
-                            </div>
-                        </Row>
-
-                        <Row>
-                            <h4>Cuantity</h4>
-                        </Row>
-                        <Row>
-                            <div className="col-3">
-                                <img
-                                    alt=""
-                                    src={freeShipping}
-                                    width="50"
-                                    height="50"
-                                    className="d-inline-block align-top"
-                                />{' '}
-                            </div>
-                            <div className="col-9">
-                                <p>
-                                    Estimated delibery on <b>Dec 16</b> 
-                                </p>
-                            </div>
-                                
-                            
-                        </Row>
-                        <Row>
-                            <div className="col-12">
-                                <h1>
-                                    Super deal <b>${details.price} MXN</b>
-                                </h1>
-                            </div>
-                        </Row>
-                        <Row>
-                            <div className="col-12">
-
-                                <Button variant="danger" size='lg'>Buy now</Button>{' '}
-                                <Button variant='warning' size='lg'>Add to cart</Button>{' '}
-                                <Button variant='warning' size='lg' onClick={handleGoBack}>Go back</Button>{' '}
-                            </div>
-                        </Row>
-                    </div>
-                </Row> */}
             </Container>
         </>
     );

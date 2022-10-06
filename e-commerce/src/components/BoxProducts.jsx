@@ -52,55 +52,6 @@ const BoxProducts = ({ products, func }) => {
                     </div>
                 </div>
             </Row>
-
-            {/* <Container fluid className='px-5 mt-5'>
-                <Row>
-                    <div className="col-12">
-                        <Alert show={show} variant="dark">
-                            <Alert.Heading>BIG SALE</Alert.Heading>
-                            <p>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-                            lacinia odio sem nec elit. Cras mattis consectetur purus sit amet
-                            fermentum.
-                            </p>
-                            <hr />
-                            <div className="d-flex justify-content-end">
-                                <Button onClick={() => setShow(false)} variant="outline-success">
-                                    SHOP NOW
-                                </Button>
-                            </div>
-                        </Alert>
-                    </div>
-                </Row>
-            </Container>
-            <Container fluid className='px-5 mt-5'>
-                <Row>
-                    <div className="col-2">
-                        <SidebarSearch/>
-                    </div>
-                    <div className='col'>
-                        <div id='box-products' className='row row-cols-4'>
-                            {
-                                Object.values(productInfo).length === 0 ? (
-                                    productArray.map((product, index) => (
-                                        product.image !== undefined && (
-                                            <Product
-                                                details={product}
-                                                key={index}
-                                                getProductDetails={() => recoverProductId(product._id)}
-                                            />
-                                        )))
-                                ) : (
-                                    <ProductDetail
-                                        details={productInfo}
-                                        handleGoBack={() => setProductInfo({})}
-                                    />
-                                )         
-                            }
-                        </div>
-                    </div>
-                </Row>
-            </Container> */}
         </>
     );
 };
