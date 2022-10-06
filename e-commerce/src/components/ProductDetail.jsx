@@ -21,7 +21,27 @@ const ProductDetail = ({ details, handleGoBack }) => {
                                 /> 
                             </div>
                             <div className="col-8">
+                                <Card.Title className='fs-4'>Overview</Card.Title>
+                                <Card.Text>
+                                    {details.description}
+                                </Card.Text>
+                                <Card.Text>
+                                    Brand: {details.brand}
+                                </Card.Text>
+                                <Card.Title className='fs-4' id='product-price'>${details.price} MXN</Card.Title>
+                                <Card.Title className='fs-4'>Free shipping!</Card.Title>
+                                <Card.Text>
+                                    <i className="bi bi-truck" style={{color: 'rgb(0, 10, 59)', fontSize: '20px'}}></i>
+                                    Estimated delivery on <b>Dec 16</b>
+                                </Card.Text>
                                 <Row>
+                                    <div className="col-12 align-self-end">
+                                        <Button variant="danger" size='sm'>Buy now</Button>{' '}
+                                        <Button variant='warning' size='sm'>Add to cart</Button>{' '}
+                                    </div>
+                                </Row>
+
+                                {/* <Row>
                                     <div className="col-12">
                                         <p>{details.description}</p>
                                         <p>{details.brand}</p>
@@ -42,7 +62,7 @@ const ProductDetail = ({ details, handleGoBack }) => {
                                         <Button variant="danger" size='sm'>Buy now</Button>{' '}
                                         <Button variant='warning' size='sm'>Add to cart</Button>{' '}
                                     </div>
-                                </Row>
+                                </Row> */}
                             </div>
                             
                             {/* <Card.Title>{details.brand}</Card.Title> */}

@@ -9,6 +9,11 @@
     font-style: italic;
 }
 
+#product-price {
+    color: rgb(118, 6, 0);
+    font-style: italic;
+}
+
 .img-product {
     object-fit: cover;
     width: 250px;
