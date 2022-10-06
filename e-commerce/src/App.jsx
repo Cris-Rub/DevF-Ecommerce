@@ -6,7 +6,9 @@ import ErrorPage from './components/ErrorPage';
 import NavbarComponent from './components/NavbarComponent';
 import BoxProducts from './components/BoxProducts';
 import ProductDetail from './components/ProductDetail';
+import LoadingComponent from './components/LoadingComponent';
 import './App.css';
+
 
 function App() {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';
@@ -70,7 +72,7 @@ function App() {
                             <Container fluid className='px-5 mt-5'>
                                 {
                                     productArray.length === 0 ? (
-                                        <h3>Loading place holder</h3>
+                                        <LoadingComponent/>
                                     ) : (
                                         Object.values(productInfo).length === 0 ? (
                                             <BoxProducts

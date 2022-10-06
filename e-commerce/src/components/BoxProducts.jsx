@@ -6,6 +6,7 @@ import { Row, Card, Button, ListGroup, Alert } from 'react-bootstrap';
 import Product from './Product';
 import SidebarSearch from './SidebarSearch';
 import ProductDetail from './ProductDetail';
+import './BoxProducts.css';
 
 const BoxProducts = ({ products, func }) => {
     const BASE_URL = 'https://ecomerce-master.herokuapp.com/api/v1/';

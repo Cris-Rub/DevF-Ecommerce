@@ -18,10 +18,14 @@ const Product = ({ details, getProductDetails }) => {
                     />
                     <Card.Body>
                         <Card.Title>{details.product_name}</Card.Title>
-                        <Card.Text className='priceProduct'>
-                            <b>${details.price} MXN</b>
+                        <Card.Text className='brand-product'>
+                            {details.brand}
                         </Card.Text>
-                        <Button variant="primary" size='sm'>Add to cart</Button>
+                        <Card.Text className='priceProduct'>
+                            <h5><b>${details.price} MXN</b></h5>
+                        </Card.Text>
+                        
+                        {/* <Button variant="primary" size='sm'>Add to cart</Button> */}
                     </Card.Body>
                 </Card> 
             </div>
