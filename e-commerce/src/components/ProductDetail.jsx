@@ -15,7 +15,6 @@ const ProductDetail = () => {
         axios
             .get(`${BASE_URL}item/${id}`)
             .then(({ data }) => {
-                console.log(data);
                 setProduct(data);
             })
             .catch((error) => console.log(error));
